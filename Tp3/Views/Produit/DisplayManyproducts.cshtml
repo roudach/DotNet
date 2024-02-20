@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Display Many Products";
+}
+
+<h2>Liste des Produits</h2>
+
+@if (ViewData["Produits"] != null)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produit in ViewBag.Produits)
+            {
+                <tr>
+                    <td>@produit.Id</td> <!-- Affiche l'ID du produit -->
+                    <td>@produit.Name</td> <!-- Affiche le nom du produit -->
+                    <td>@produit.Prix</td> <!-- Affiche le prix du produit -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Aucun produit à afficher.</p>
+}
+
